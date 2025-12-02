@@ -26,23 +26,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // ✅ CORS Configuration - Fixed for Render deployment
 const corsOptions = {
-  origin: function (origin, callback) {
-    const allowedOrigins = [
-      ENV.CLIENT_URL,
-      'https://interview-prep-1-q8tq.onrender.com',
-      'http://localhost:5173',
-      'http://localhost:3000'
-    ];
-    
-    // Allow requests with no origin (like mobile apps or curl requests)
-    if (!origin) return callback(null, true);
-    
-    if (allowedOrigins.indexOf(origin) !== -1) {
-      callback(null, true);
-    } else {
-      callback(null, true); // Allow in development, log in production
-    }
-  },
+  origin: true,
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
