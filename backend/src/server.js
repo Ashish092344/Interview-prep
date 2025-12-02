@@ -52,10 +52,6 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
-// ✅ Handle preflight OPTIONS requests
-app.options('*', cors(corsOptions));
-
-
 //-----------------------------------------------------------------------------------------
 app.use(clerkMiddleware()); // this adds auth field to request object: req.auth()
 
