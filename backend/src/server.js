@@ -34,7 +34,7 @@ const corsOptions = {
   maxAge: 86400 // 24 hours
 };
 
-app.use(cors());
+app.use(cors(corsOptions));
 
 //-----------------------------------------------------------------------------------------
 app.use(clerkMiddleware()); // this adds auth field to request object: req.auth()
